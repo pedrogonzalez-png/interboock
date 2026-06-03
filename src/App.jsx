@@ -14,8 +14,8 @@ export default function App() {
   const [livroSelecionado, setLivroSelecionado] = useState(null);
 
   // Aqui está o truque! Em vez de vazio, já começamos com a lista pronta:
-  const [livros, setLivros] = useState([
- {
+  const [livros] = useState([
+   {
     id: 1,
     titulo: "It: A Coisa",
     categoria: "terror",
