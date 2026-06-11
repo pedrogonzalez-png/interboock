@@ -1,0 +1,827 @@
+header {
+  height: 80px;
+  width: 100%;
+  background-color: #051212;
+  border-bottom: 1px solid #58b58d;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 50px;
+  position: relative;
+  z-index: 100;
+  box-shadow: 0 4px 30px rgba(0,0,0,0.8);
+}
+
+.logo-placeholder {
+  display: flex;
+  align-items: center;
+}
+
+.logo-img {
+  height: 40px;
+  display: block;
+  border-radius:40px;
+}
+
+/* BOTÃO ESTILO HARDWARE */
+header button {
+  width: auto;
+  padding: 0 30px;
+  height: 44px;
+  border: 1px solid #45b5e7;
+  border-radius: 0; /* Cantos retos - assinatura visual tech */
+  background-color: transparent;
+  color: #45b5e7;
+  cursor: pointer;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  transition: all 0.2s ease;
+}
+
+header button:hover {
+  background-color: #45b5e7;
+  color: #030a0a;
+  box-shadow: 0 0 20px rgba(69, 181, 231, 0.4);
+}
+
+/* =========================================
+   2. CONTEÚDO PRINCIPAL (BENTO GRID ENGINE)
+========================================= */
+main.painel-central {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  z-index: 2;
+}
+
+/* INTRO HERO AREA */
+.intro-sistema {
+  text-align: left;
+  padding: 20px 0 10px;
+}
+
+.badge-tech {
+  display: inline-block;
+  padding: 6px 12px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: #58b58d;
+  background: rgba(88, 181, 141, 0.1);
+  border: 1px solid rgba(88, 181, 141, 0.3);
+  letter-spacing: 2px;
+  margin-bottom: 15px;
+}
+
+.titulo-principal {
+  font-size: 42px;
+  font-weight: 900;
+  letter-spacing: 3px;
+  color: #e1f2ef;
+  text-transform: uppercase;
+  text-shadow: 0 0 20px rgba(225, 242, 239, 0.1);
+}
+
+.intro-sistema p {
+  color: #a3c4bc;
+  font-size: 1.1rem;
+  margin-top: 5px;
+}
+
+/* CONTAINER DO GRID ASSIMÉTRICO */
+.grid-assimetrico {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: minmax(160px, auto);
+  gap: 20px;
+  width: 100%;
+}
+
+/* CLASSES DE COMPORTAMENTO DE SPAN (BENTO LAYOUT) */
+.span-2x2 {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.span-1x2 {
+  grid-column: span 1;
+  grid-row: span 2;
+}
+
+.span-2x1 {
+  grid-column: span 2;
+  grid-row: span 1;
+}
+
+/* ESTRUTURA BASE DOS MÓDULOS DOS PAINÉIS */
+.modulo {
+  position: relative;
+  background-color: #061515;
+  border: 1px solid rgba(88, 181, 141, 0.15);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+  overflow: hidden;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.modulo:hover {
+  border-color: rgba(69, 181, 231, 0.4);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.8), inset 0 0 15px rgba(69, 181, 231, 0.03);
+}
+
+.modulo-conteudo {
+  position: relative;
+  z-index: 5;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 12px;
+}
+
+/* BADGES DE IDENTIFICAÇÃO DOS MÓDULOS */
+.modulo-tag {
+  font-size: 0.7rem;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+  color: #58b58d;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+
+.modulo h2 {
+  font-size: 26px;
+  font-weight: 900;
+  color: #e1f2ef;
+  letter-spacing: 1px;
+}
+
+.modulo h3 {
+  font-size: 20px;
+  font-weight: 800;
+  color: #1fb8ff;
+  letter-spacing: 0.5px;
+}
+
+.modulo p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #b5c9c4;
+}
+
+/* IMAGENS DE FUNDO DOS MÓDULOS */
+.imagem-fundo {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+  opacity: 0.3;
+  pointer-events: none;
+  filter: contrast(1.1) grayscale(30%);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.modulo:hover .imagem-fundo {
+  opacity: 0.5;
+  transform: scale(1.02);
+}
+
+.opacity-low {
+  opacity: 0.15;
+}
+
+.modulo:hover .opacity-low {
+  opacity: 0.25;
+}
+
+/* VARIÁVEIS ESPECÍFICAS DE ALGUNS MÓDULOS */
+.modulo-destaque {
+  border-color: rgba(88, 181, 141, 0.3);
+}
+
+.modulo-destaque h2 {
+  color: #58b58d;
+  text-shadow: 0 0 15px rgba(88, 181, 141, 0.2);
+}
+
+/* Módulo Vertical - Sensores */
+.status-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.item-sensor {
+  background: rgba(3, 10, 10, 0.6);
+  border: 1px solid rgba(88, 181, 141, 0.2);
+  padding: 10px 14px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #e1f2ef;
+}
+
+/* Módulo Compacto de Status (Latência) */
+.modulo-status {
+  background: #030a0a;
+  border-color: rgba(69, 181, 231, 0.3);
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 5px;
+}
+
+.status-label {
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  color: #45b5e7;
+}
+
+.status-valor {
+  font-size: 2.2rem;
+  font-weight: 900;
+  font-family: 'Courier New', Courier, monospace;
+  color: #45b5e7;
+  text-shadow: 0 0 10px rgba(69, 181, 231, 0.4);
+}
+
+.status-sub {
+  font-size: 0.75rem;
+  color: #7b9992;
+}
+
+/* Módulo Horizontal Dividido (Lado a Lado) */
+.modulo-conteudo-horizontal {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  gap: 20px;
+  z-index: 5;
+}
+
+.texto-horizontal {
+  flex: 1;
+}
+
+.wrapper-imagem-lado {
+  flex: 0 0 180px;
+  height: 100%;
+  min-height: 120px;
+  overflow: hidden;
+}
+
+.imagem-lado {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: contrast(1.1);
+}
+
+/* =========================================
+   3. BLOCOS DE CONTEÚDO (TEXTO E IMAGEM SEPARADOS)
+========================================= */
+.bloco-s1 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  background: #061515;
+  border: 1px solid rgba(88, 181, 141, 0.15);
+  padding: 40px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  width: 100%;
+}
+
+.bloco-s1:nth-of-type(even) {
+  flex-direction: row-reverse;
+}
+
+.s1 {
+  flex: 1;
+  min-width: 300px;
+  max-width: 500px;
+  height: 350px;
+  overflow: hidden;
+  border: 1px solid rgba(69, 181, 231, 0.25);
+  position: relative;
+}
+
+.s1 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: contrast(1.1) brightness(0.95);
+  transition: transform 0.4s ease;
+}
+
+.bloco-s1:hover .s1 img {
+  transform: scale(1.03);
+}
+
+.texto-s1 {
+  flex: 1;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.texto-s1 h2 {
+  font-size: 28px;
+  font-weight: 900;
+  color: #58b58d;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  border-bottom: 1px solid rgba(88, 181, 141, 0.2);
+  padding-bottom: 10px;
+}
+
+.texto-s1 p {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #a3c4bc;
+}
+
+.s3 {
+  width: 100%;
+  margin-top: 40px;
+  border: 1px solid rgba(69, 181, 231, 0.2);
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+}
+
+.s3 img {
+  width: 100%;
+  height: auto;
+  max-height: 450px;
+  object-fit: cover;
+  display: block;
+}
+
+/* =========================================
+   4. MODAL JANELA LOGIN / REGISTO
+========================================= */
+.overlay {
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(3, 10, 10, 0.95);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.janela-login {
+  position: relative;
+  width: 92%;
+  max-width: 480px;
+  padding: 50px;
+  background: #061515; 
+  border: 1px solid #58b58d;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.9), inset 0 0 20px rgba(88, 181, 141, 0.05);
+}
+
+.janela-login h2 {
+  color: #e1f2ef;
+  text-align: left;
+  font-weight: 900;
+  margin-bottom: 10px;
+  font-size: 24px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-bottom: 2px solid #58b58d;
+  padding-bottom: 10px;
+}
+
+.janela-login input {
+  height: 50px;
+  padding-left: 15px;
+  border: 1px solid rgba(88, 181, 141, 0.3);
+  border-radius: 0;
+  font-size: 15px;
+  background-color: #030a0a;
+  color: #e1f2ef;
+  transition: all 0.3s;
+}
+
+.janela-login input:focus {
+  outline: none;
+  border-color: #58b58d;
+  box-shadow: 0 0 10px rgba(88, 181, 141, 0.2);
+}
+
+.janela-login button:not(.fechar) {
+  height: 50px;
+  border: 1px solid #58b58d;
+  border-radius: 0;
+  background-color: #58b58d;
+  color: #030a0a;
+  font-weight: 900;
+  font-size: 16px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-top: 15px;
+  letter-spacing: 1px;
+}
+
+.janela-login button:not(.fechar):hover {
+  background-color: transparent;
+  color: #58b58d;
+}
+
+.fechar {
+  position: absolute;
+  top: 15px; right: 15px;
+  width: 30px; height: 30px;
+  background: transparent;
+  color: #e1f2ef;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 20px;
+  transition: color 0.3s;
+}
+
+.fechar:hover {
+  color: #ff4a4a;
+}
+
+/* NOTIFICAÇÃO DO SISTEMA */
+.alerta-sucesso {
+  width: 100%;
+  max-width: 1200px;
+  margin: 20px auto 0;
+  padding: 15px 20px;
+  background-color: #061515;
+  border-left: 4px solid #58b58d;
+  color: #58b58d;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+  position: relative;
+  z-index: 10;
+}
+
+/* =========================================
+   5. LISTA DE PACIENTES INTEGRADA (DASHBOARD)
+========================================= */
+.area-pacientes {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.lista-cadastros {
+  width: 100%;
+  position: relative;
+  z-index: 5;
+}
+
+.lista-cadastros h2 {
+  color: #e1f2ef;
+  font-size: 24px;
+  font-weight: 900;
+  margin-bottom: 25px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border-left: 4px solid #45b5e7;
+  padding-left: 15px;
+}
+
+.grid-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+/* CARTÃO DO PACIENTE */
+.cartao-paciente {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  background: #061515;
+  border: 1px solid rgba(88, 181, 141, 0.2);
+  padding: 0;
+  color: #e1f2ef;
+  flex-wrap: wrap;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.info-pessoal {
+  flex: 1;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 30px 40px;
+}
+
+.info-pessoal p {
+  margin: 8px 0;
+  font-size: 1rem;
+  color: #a3c4bc;
+}
+
+.info-pessoal strong {
+  color: #e1f2ef;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  display: inline-block;
+  width: 100px;
+}
+
+.btn-excluir {
+  margin-top: 25px;
+  background: transparent;
+  color: #ff4a4a;
+  border: 1px solid #ff4a4a;
+  padding: 12px 20px;
+  border-radius: 0;
+  cursor: pointer;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  align-self: flex-start;
+}
+
+.btn-excluir:hover {
+  background: #ff4a4a;
+  color: #030a0a;
+  box-shadow: 0 0 15px rgba(255, 74, 74, 0.4);
+}
+
+/* PAINEL DIREITO (SINAIS VITAIS) */
+.sinais-vitais {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  background: #030a0a;
+  padding: 30px 40px;
+  border-left: 1px solid rgba(69, 181, 231, 0.2);
+  flex: 1.5;
+  min-width: 350px;
+}
+
+/* GRID DOS NÚMEROS */
+.metricas-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  width: 100%;
+  background: rgba(69, 181, 231, 0.15);
+  border: 1px solid rgba(69, 181, 231, 0.15);
+}
+
+.metrica {
+  display: flex;
+  flex-direction: column;
+  background: #061515;
+  padding: 20px;
+}
+
+.metrica .label {
+  font-size: 0.75rem;
+  color: #7b9992;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.metrica .valor {
+  font-size: 1.5rem;
+  font-weight: 900;
+  font-family: 'Courier New', Courier, monospace;
+  letter-spacing: -1px;
+}
+
+.destaque-vermelho { color: #ff4a4a; }
+.destaque-azul { color: #45b5e7; }
+
+/* ANIMAÇÃO DO CHIP VETORIZADO SVG */
+.chip-animado {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chip-animado svg {
+  width: 75px;
+  height: 75px;
+  animation: hardware-pulse 2s infinite ease-in-out;
+}
+
+@keyframes hardware-pulse {
+  0% { filter: drop-shadow(0 0 2px rgba(69, 181, 231, 0.5)); }
+  50% { filter: drop-shadow(0 0 15px rgba(88, 181, 141, 0.8)); }
+  100% { filter: drop-shadow(0 0 2px rgba(69, 181, 231, 0.5)); }
+}
+
+/* ==========================================
+   6. COMPACTAÇÃO DO PACIENTE DENTRO DO BENTO GRID (1x2)
+========================================= */
+.modulo-paciente-grid {
+  padding: 20px;
+  display: block;
+  overflow-y: auto;          /* Permite scroll interno se houver mais de um cadastro */
+  max-height: 340px;         /* Mantém a proporção exata da caixa bento 1x2 */
+}
+
+.modulo-paciente-grid .lista-cadastros h2 {
+  font-size: 16px;
+  margin-bottom: 15px;
+  letter-spacing: 1px;
+}
+
+.modulo-paciente-grid .cartao-paciente {
+  flex-direction: column;
+  background: #030a0a;
+  border-color: rgba(69, 181, 231, 0.3);
+  gap: 0;
+}
+
+.modulo-paciente-grid .info-pessoal {
+  padding: 15px;
+  min-width: 100%;
+}
+
+.modulo-paciente-grid .info-pessoal p {
+  font-size: 0.85rem;
+  margin: 4px 0;
+}
+
+.modulo-paciente-grid .info-pessoal strong {
+  width: 75px;
+  font-size: 0.75rem;
+}
+
+.modulo-paciente-grid .btn-excluir {
+  margin-top: 15px;
+  padding: 8px 14px;
+  font-size: 0.75rem;
+  width: 100%;
+  text-align: center;
+}
+
+.modulo-paciente-grid .sinais-vitais {
+  flex-direction: column;
+  min-width: 100%;
+  border-left: none;
+  border-top: 1px solid rgba(69, 181, 231, 0.2);
+  padding: 15px;
+  gap: 15px;
+}
+
+.modulo-paciente-grid .metricas-grid {
+  grid-template-columns: 1fr;
+  gap: 8px;
+  background: transparent;
+  border: none;
+}
+
+.modulo-paciente-grid .metrica {
+  padding: 10px;
+  background: #061515;
+  border: 1px solid rgba(69, 181, 231, 0.1);
+}
+
+.modulo-paciente-grid .metrica .valor {
+  font-size: 1.2rem;
+}
+
+.modulo-paciente-grid .chip-animado svg {
+  width: 50px;
+  height: 50px;
+}
+
+/* =========================================
+   7. RODAPÉ (FOOTER)
+========================================= */
+footer {
+  width: 100%;
+  height: 80px;
+  margin-top: 80px;
+  background-color: #030a0a;
+  border-top: 1px solid #061515;
+  color: #7b9992;
+  font-size: 12px;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  letter-spacing: 1.5px;
+  position: relative;
+  z-index: 10;
+}
+
+/* =========================================
+   8. VETORES FIXOS DO BACKGROUND
+========================================= */
+.hex-background {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.4;
+}
+
+.circuito-decorativo {
+  position: absolute; 
+  width: 360px;      
+  height: 450px;
+  pointer-events: none; 
+  z-index: 1;           
+  opacity: 0.15;
+}
+
+.circuito-top-left { top: 80px; left: 0; }
+.circuito-bottom-right { bottom: 80px; right: 0; transform: rotate(180deg); }
+
+/* =========================================
+   9. RESPONSIVIDADE (MOBILE ADAPTATION)
+========================================= */
+@media (max-width: 1024px) {
+  .grid-assimetrico {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  header {
+    padding: 0 20px;
+  }
+  
+  .titulo-principal {
+    font-size: 32px;
+  }
+
+  .grid-assimetrico {
+    grid-template-columns: 1fr;
+    grid-auto-rows: auto;
+  }
+
+  /* Desfaz os spans em telas pequenas para não quebrar o layout */
+  .span-2x2, .span-1x2, .span-2x1 {
+    grid-column: span 1 !important;
+    grid-row: span 1 !important;
+  }
+
+  .modulo-conteudo-horizontal {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .wrapper-imagem-lado {
+    width: 100%;
+    height: 150px;
+    flex: none;
+  }
+
+  .cartao-paciente {
+    flex-direction: column;
+  }
+
+  .sinais-vitais {
+    flex-direction: column;
+    min-width: 100%;
+    border-left: none;
+    border-top: 1px solid rgba(69, 181, 231, 0.2);
+    padding: 20px;
+  }
+
+  /* Ajuste mobile para os teus blocos de texto/imagem separados */
+  .bloco-s1, 
+  .bloco-s1:nth-of-type(even) {
+    flex-direction: column;
+    gap: 25px;
+    padding: 20px;
+  }
+
+  .s1 {
+    max-width: 100%;
+    width: 100%;
+    height: 250px;
+  }
+}
