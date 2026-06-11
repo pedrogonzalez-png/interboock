@@ -1,18 +1,5 @@
-/* =========================
-   CONFIGURAÇÃO GERAL E TOPO
-========================= */
-body {
-  overflow-x: hidden;
-  position: relative;
-  min-height: 100vh;
-  background-color: #030a0a; 
-  margin: 0;
-  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  color: #e1f2ef;
-}
-
-* {
-  box-sizing: border-box;
+*{
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
